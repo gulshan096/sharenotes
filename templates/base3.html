@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TASK</title>
+     {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-sm bg-light navbar-dark">
+	<div class="container">
+
+	  <a href="#" class="navbar-brand text-dark">Task Dashboard</a>
+
+	<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarid">
+
+		<span class="navbar-toggler-icon bg-secondary"></span>
+
+		</button>
+
+	<div class="navbar-collapse" id="navbarid">
+	<ul class="navbar-nav text-center ml-auto">
+       {% if user.is_authenticated %}
+        <li class="nav-item">
+			<a href="#" class="nav-link text-info">hello,{{user.username}}</a>
+		</li>
+		 {% endif %}
+
+
+           {% if user.is_authenticated %}
+
+			<li class="nav-item">
+				<a href="{% url 'logout' %}" class="nav-link text-dark">Logout</a>
+			</li>
+		    <li class="nav-item">
+			   <a href="{% url 'home' %}" class="nav-link text-dark">Home</a>
+		   </li>
+		   <li class="nav-item">
+			   <a href="{% url 'allnotes' %}" class="nav-link text-dark">All notes</a>
+		   </li>
+		   <li class="nav-item">
+			   <a href="{% url 'uploaddata' %}" class="nav-link text-dark">add notes</a>
+		   </li>
+		    {% else %}
+		   <li class="nav-item">
+			<a href="{% url 'login' %}" class="nav-link text-info">Log in</a>
+		</li>
+		<li class="nav-item">
+			<a href="{% url 'signup' %}" class="nav-link text-info">Sign up</a>
+		</li>
+		   {% endif %}
+
+	</ul>
+   </div>
+</div>
+</nav>
+
+{% block content %}  {% endblock content %}
+
+</body>
+</html>

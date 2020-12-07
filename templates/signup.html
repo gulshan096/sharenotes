@@ -1,0 +1,64 @@
+{% extends 'base3.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+	<div class="card bg-dark" >
+
+
+   <div class="bg-info text-center">
+	 <h4 class="text-white">Registration Form</h4>
+   </div>
+
+
+		<article class="card-body mx-auto mb-lg-1">
+
+
+    <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+         <div class="row jumbotron mb-lg-1">
+
+
+			<div class="col-xl-6 col-sm-6 col-lg-6 col-md-6" >
+
+				<label>Username</label>
+				  {{form.username}}
+			</div>
+			<div class="col-xl-6 col-sm-6 col-lg-6 col-md-6" >
+
+				<label>Email</label>
+				 {{form.email}}
+			</div>
+			<div class="col-xl-6 col-sm-6 col-lg-6 col-md-6" >
+
+				<label>Password</label>
+				{{form.password1}}
+			</div>
+			 <div class="col-xl-6 col-sm-6 col-lg-6 col-md-6" >
+
+				<label>Password(again)</label>
+				{{form.password2}}
+			</div>
+
+
+			<div class="col-xl-12 col-lg-12 col-sm-12 col-md-12 justify-content-center modal-footer mx-auto mt-lg-3">
+				<button type="submit" class="btn btn-success " name="submit">Signup</button>
+				<p class="text-black">Have an account? <a href="{% url 'login' %}" class="text-info">Log in</a></p>
+			</div>
+		</div>
+
+
+    </form>
+      </article>
+
+						  {% if messages %}
+						     {% for message in messages %}
+						        {{message}}
+		                     {% endfor %}
+						  {% endif %}
+
+    </div>
+    </div>
+
+{% endblock content %}
+

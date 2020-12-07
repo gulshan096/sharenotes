@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center flex-column py-2 mt-5">
+   <p class="main_haeding__para mt-5">SHARE YOUR<span>ALL NOTES</span></p>
+ </div>
+
+
+       <header>
+      <div class="main_header__div d-flex align-items-start justify-content-center pl-5 flex-column shadow mt-3">
+        <p>Task</p>
+        <h2 class="animateWord">
+          <span>You can</span>
+          <div>
+            <ul class="flip">
+              <li>share a notes.</li>
+              <li>update a notes.</li>
+              <li>download a notes.</li>
+              <li>delete a notes.</li>
+            </ul>
+          </div>
+        </h2>
+        <button class="text-uppercase" type=""><a class="text-dark" href="{% url 'signup' %}">Register NOW</a></button>
+      </div>
+     </header>
+{% endblock content %}

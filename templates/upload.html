@@ -1,0 +1,62 @@
+{% extends 'base3.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+	<div class="card bg-dark" >
+
+
+   <div class="bg-info text-center">
+	 <h4 class="text-white">ADD NOTES HERE</h4>
+   </div>
+
+
+		<article class="card-body mx-auto mb-lg-1">
+
+
+    <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+         <div class="row jumbotron mb-lg-1">
+
+
+			<div class="col-xl-6 col-sm-6 col-lg-6 col-md-6" >
+
+				<label>Branch name</label>
+				  {{upload.branch}}
+			</div>
+			 <div class="col-xl-6 col-sm-6 col-lg-6 col-md-6" >
+
+				<label>Subject name</label>
+				  {{upload.subject}}
+			</div>
+			<div class="col-xl-6 col-sm-6 col-lg-6 col-md-6" >
+
+				<label>Select Date</label>
+				 {{upload.date}}
+			</div>
+			<div class="col-xl-6 col-sm-6 col-lg-6 col-md-6" >
+
+				<label>Select Note</label>
+				{{upload.file}}
+			</div>
+
+
+			<div class="col-xl-12 col-lg-12 col-sm-12 col-md-12 justify-content-center modal-footer mx-auto mt-lg-3">
+				<button type="submit" class="btn btn-success" name="submit">click here to post your notes</button>
+			</div>
+		</div>
+
+
+    </form>
+      </article>
+
+						  {% if messages %}
+						     {% for message in messages %}
+						        {{message}}
+		                     {% endfor %}
+						  {% endif %}
+
+    </div>
+    </div>
+
+{% endblock content %}

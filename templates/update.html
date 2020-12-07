@@ -1,0 +1,55 @@
+{% extends 'base3.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container">
+	<div class="card bg-dark">
+
+
+   <div class="bg-info text-center">
+	 <h4 class="text-white">EDITS YOUR FILES HERE</h4>
+   </div>
+
+		<article class="card-body mx-auto">
+
+
+    <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+         <div class="row jumbotron">
+			<div class="col-xl-6 col-sm-6 col-lg-6 col-md-6" >
+				<label>Branch name</label>
+				{{fm.branch}}
+
+			</div>
+			 <div class="col-xl-6 col-sm-6 col-lg-6 col-md-6" >
+				<label>Subject name</label>
+				{{fm.subject}}
+
+			</div>
+			<div class="col-xl-6 col-sm-6 col-lg-6 col-md-6" >
+				<label>Date</label>
+				{{fm.date}}
+
+			</div>
+			<div class="col-xl-6 col-sm-6 col-lg-6 col-md-6" >
+				<label>Selected Note</label>
+				{{fm.file}}
+
+			</div>
+			<div class="col-xl-12 col-lg-12 col-sm-12 col-md-12 justify-content-center modal-footer mx-auto mt-lg-3">
+				<button type="submit" class="btn btn-success" name="submit">UPDATE NOW</button>
+			</div>
+		</div>
+
+
+    </form>
+			 {% if messages %}
+						     {% for message in messages %}
+						        {{message}}
+		                     {% endfor %}
+						  {% endif %}
+</article>
+    </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TASK</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.js">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+	<div class="container">
+		<a href="" class="navbar-brand">task</a>
+		<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarid">
+
+		<span class="navbar-toggler-icon"></span>
+
+		</button>
+
+<div class="navbar-collapse" id="navbarid">
+	<ul class="navbar-nav text-center ml-auto ">
+         {% if user.is_authenticated %}
+        <li class="nav-item">
+			<a href="#" class="nav-link text-info">hello,{{user.username}}</a>
+		</li>
+		 {% endif %}
+		<li class="nav-item">
+			<a href="" class="nav-link text-white">Home</a>
+		</li>
+		<li class="nav-item">
+			<a href="{% url 'uploaddata' %}" class="nav-link text-white">Share notes</a>
+		</li>
+		{% if user.is_authenticated %}
+		<li class="nav-item">
+			<a href="{% url 'logout' %}" class="nav-link text-white">Logout</a>
+		</li>
+
+		{% else %}
+
+		<li class="nav-item ">
+
+			<a href="{% url 'signup' %}" class="nav-link text-white">Signup</a>
+
+
+		</li>
+		{% endif %}
+
+
+	</ul>
+   </div>
+ </div>
+
+
+</nav>
+{% block content %}  {% endblock content %}
+
+</body>
+</html>

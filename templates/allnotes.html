@@ -1,0 +1,42 @@
+{% extends 'base3.html' %}
+{% load static %}
+{% block content %}
+
+<<div class="container-fluid ">
+	<div class="bg-secondary text-center" >
+		<p class="text-white">Your all notes details</p>
+	</div>
+
+</div>
+<br>
+<div class="container" >
+	<article class="bg-light" >
+		{% if notes %}
+
+			{% for nt in notes %}
+				<tr class="mt-5" >
+					<div class="p-3" style="box-shadow: 0 0 10px 0">
+					<h4 class="text-center" >{{nt.id}}</h4>
+					<h4 class="text-center">{{nt.branch}}</h4>
+					<h4 class="text-center"><a href="#">{{nt.subject}}</a></h4>
+					<h4 class="text-center">{{nt.date}}</h4>
+					<h4 class="text-center"><a href="{{nt.file.url}}" download>{{nt.file.url}}</a>
+			  <h4 class="text-center">
+			  	<a href="{% url 'updatedata'  nt.id %}" class="btn bg-success text-white">edit</a>
+			    <a href="{% url 'deletedata' nt.id %}" class="btn bg-danger text-white">delete</a>
+			    <a href="{{nt.file.url}}" class="btn bg-primary text-white">Download</a><br>
+			  </h4>
+				</div>
+				</tr>
+				<h6 class="container-fluid bg-white "><br><br><h6>
+			{% endfor %}
+
+		{% else %}
+			<h4 class="text-center alert alert-warning">No Records</h4>
+		{% endif %}
+	</article>
+
+</div>
+
+
+{% endblock content %}
